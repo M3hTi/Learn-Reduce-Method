@@ -72,6 +72,7 @@ console.log(flattened);
 
 const inventors = ['apple', 'samsung', 'LG', 'samsung', 'LG', 'samsung', 'apple', 'Asus']
 const countInventors = inventors.reduce((accumulator,currentValue) =>{
+    console.log(accumulator,currentValue);
     if(accumulator[currentValue]){
         accumulator[currentValue] += 1
     }else{
@@ -80,6 +81,66 @@ const countInventors = inventors.reduce((accumulator,currentValue) =>{
     return accumulator
 },{})
 console.log(countInventors);
+
+
+
+
+// NOTE: calculate of video times
+const videosUl = document.querySelectorAll('.videos li')
+console.log(videosUl);
+
+
+
+let arrTimes = []
+
+videosUl.forEach((video) => {
+    // console.log(video.dataset.time);
+    const timeString = video.dataset.time
+    console.log(timeString);
+    const [min , sec] = timeString.split(':').map(Number)
+    console.log(min , sec);
+
+    const totalTime = min * 60 + sec
+    console.log(totalTime);
+
+    arrTimes.push(totalTime)
+
+})
+
+console.log(arrTimes);
+
+const totalSec = arrTimes.reduce((total,currrentValue) => {
+    return total + currrentValue
+})
+console.log(totalSec);
+
+
+const hour = Math.floor(totalSec / 3600)
+console.log(hour);
+
+
+const min = Math.floor((totalSec % 3600) / 60);
+console.log(min);
+
+
+const sec =  totalSec % 60;
+console.log(sec);
+
+
+const formatTime = `${hour}:${min}:${sec}`
+console.log(formatTime);
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
